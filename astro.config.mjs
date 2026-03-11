@@ -1,17 +1,15 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import tailwind from "@tailwindcss/vite";
-import node from "@astrojs/node";
 import sitemap from "@astrojs/sitemap";
 import { VitePWA } from "vite-plugin-pwa";
+import vercel from "@astrojs/vercel/serverless";
 
 export default defineConfig({
   site: "http://127.0.0.1:4321",
   integrations: [react(), sitemap()],
   output: "server",
-  adapter: node({
-    mode: "standalone",
-  }),
+  adapter: vercel(),
   vite: {
     plugins: [
       tailwind(),
