@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import Hero from "./components/Hero";
 import CoupleProfile from "./components/CoupleProfile";
 import EventDetails from "./components/EventDetails";
-import Gallery from "./components/Gallery";
-import LoveStory from "./components/LoveStory";
 import RSVPForm from "./components/RSVPForm";
 import Wishes from "./components/Wishes";
 import GiftInfo from "./components/GiftInfo";
@@ -84,7 +82,12 @@ const App: React.FC = () => {
 
   const handleOpenInvitation = () => {
     setIsOpened(true);
-    window.dispatchEvent(new CustomEvent("play-wedding-music"));
+
+    // Beri delay 100ms agar MusicPlayer sempat pasang listener
+    setTimeout(() => {
+      window.dispatchEvent(new CustomEvent("play-wedding-music"));
+    }, 100);
+
     window.scrollTo({ top: 0, behavior: "instant" });
   };
 
