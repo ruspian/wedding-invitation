@@ -1,4 +1,4 @@
-import { dns } from "node:dns";
+import dns from "node:dns";
 
 const TOKEN = import.meta.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = import.meta.env.TELEGRAM_CHAT_ID;
