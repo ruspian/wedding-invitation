@@ -1,13 +1,11 @@
-import dns from "node:dns";
-
 const TOKEN = import.meta.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = import.meta.env.TELEGRAM_CHAT_ID;
 
 // Opsional: Paksa menggunakan IPv4 jika server Anda bermasalah dengan IPv6
 // Hapus baris ini jika berjalan di lingkungan yang mendukung IPv6 penuh
-if (typeof dns !== "undefined" && dns.setDefaultResultOrder) {
-  dns.setDefaultResultOrder("ipv4first");
-}
+// if (typeof dns !== "undefined" && dns.setDefaultResultOrder) {
+//   dns.setDefaultResultOrder("ipv4first");
+// }
 
 export const sendTelegramNotification = async (text: string) => {
   // 1. Cek konfigurasi
